@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# No compiled or build artifacts should be in this repo
+__pycache__/
+*.pyc
+node_modules/
