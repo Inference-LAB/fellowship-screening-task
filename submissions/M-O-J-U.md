@@ -1,4 +1,4 @@
-## Full-Name
+## Name
 Abdul Moiz Muhammad
 
 ## Project and Role
