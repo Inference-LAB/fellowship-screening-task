@@ -8,7 +8,7 @@ llm-eval-kit — Lead Engineer
 
 ## Expected Contribution
 
-As the Lead Engineer on llm-eval-kit, I expect to contribute by designing a clean and extensible architecture for the evaluation library. My experience building AI-powered applications has taught me the importance of creating systems that are easy to maintain, test, and extend. I would focus on the Evaluator class design, criteria registry architecture, CLI usability, and developer experience. One area I am particularly interested in is ensuring that new evaluation criteria can be added with minimal changes to the codebase, allowing the library to scale as new evaluation methods are introduced. I also hope to contribute to documentation, API design, and establishing clear development practices that help the team collaborate effectively throughout the fellowship.
+As the Lead Engineer on llm-eval-kit, I hope to contribute by designing a clean, modular, and extensible architecture for the evaluation library. While developing CIRO (Crisis Intelligence & Response Orchestrator), a serverless multi-agent crisis response platform, I learned the importance of building systems that are maintainable, scalable, and easy to extend as requirements evolve. I am particularly interested in designing the Evaluator class, the criteria registry architecture, and ensuring that new evaluation criteria can be integrated with minimal changes to the existing codebase. Through this fellowship, I also look forward to strengthening my software engineering skills while contributing to well-documented APIs, a smooth developer experience, and engineering practices that support long-term collaboration and maintainability.
 
 ## Question
 
