@@ -1,22 +1,24 @@
-﻿\## Name
+﻿## Name
 
 Muhammad Maaz
 
 
 
-\## Project and Role
+## Project and Role
 
 llm-eval-kit - Research/Implementation Engineer
 
 
 
-\## Expected Contribution
+## Expected Contribution
 
-I'd start with the boundary that will actually break this project: the singleton model-loading pattern under concurrent load. The brief flags this as a performance issue (reload-per-call is unusably slow), but it's also a correctness issue - if evaluate() is ever called from multiple threads (a Flask service scoring responses in parallel, for instance), a naive singleton can race during first load or return partially-initialized state. I'd build and stress-test that pattern before writing any of the four criteria, not after. For the criteria themselves, I'd treat refusal\_check as the highest-risk one, since the brief already names its failure mode: "I cannot stress enough how important this is" must not trip a keyword match. That means it needs pattern matching sophisticated enough to separate cautionary language from actual refusal, likely combining structural cues with lexical ones, not lexical alone. For factual\_grounding and relevance, the core work is choosing a sensible aggregation over sentence-transformer embeddings - raw cosine similarity between full response and context is a starting point, but I'd want to test it against cases where a response is grounded in one supporting sentence rather than the whole context, since mean-pooling over unrelated sentences can wash that signal out. I've worked directly with this exact class of problem: my Self-RAG project used an \[IsSup] classifier to check whether a generation is actually backed by retrieved context, which is the same grounding-verification problem this role owns, just packaged as a reusable library instead of embedded in one pipeline.
+I'd start with the boundary that will actually break this project: the singleton model-loading pattern under concurrent load. The brief flags this as a performance issue (reload-per-call is unusably slow), but it's also a correctness issue - if evaluate() is ever called from multiple threads (a Flask service scoring responses in parallel, for instance), a naive singleton can race during first load or return partially-initialized state. I'd build and stress-test that pattern before writing any of the four criteria, not after. For the criteria themselves, I'd treat refusal_check as the highest-risk one, since the brief already names its failure mode: "I cannot stress enough how important this is" must not trip a keyword match. That means it needs pattern matching sophisticated enough to separate cautionary language from actual refusal, likely combining structural cues with lexical ones, not lexical alone. For factual_grounding and relevance, the core work is choosing a sensible aggregation over sentence-transformer embeddings - raw cosine similarity between full response and context is a starting point, but I'd want to test it against cases where a response is grounded in one supporting sentence rather than the whole context, since mean-pooling over unrelated sentences can wash that signal out. I've worked directly with this exact class of problem: my Self-RAG project used an [IsSup] classifier to check whether a generation is actually backed by retrieved context, which is the same grounding-verification problem this role owns, just packaged as a reusable library instead of embedded in one pipeline.
 
 
 
-\## Question
+## Question
 
 Local sentence-transformer models like all-MiniLM-L6-v2 are fast but capped in how well they judge grounding versus surface-similarity - a response can be lexically close to the context while missing the actual claim, or paraphrase it correctly with low cosine similarity. Newer approaches use cross-encoders or lightweight NLI models specifically for entailment-style checks, and often beat embedding-similarity on grounding tasks specifically. Given the project explicitly commits to zero API calls and full offline capability, is that a hard constraint (offline reliability is the actual point, not just a v1 simplification), or is v1 intentionally the fast, cheap, good-enough baseline with a swappable evaluator interface expected later, so a team could plug in a heavier local NLI model for higher-stakes evaluation without changing the public API?
+
+
 
