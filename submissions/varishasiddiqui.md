@@ -2,10 +2,10 @@
 Warisha Arshad
 
 ## Project and Role
-Engineering Fellowship – Lead Engineer
+llm-eval-kit – Research Engineer
 
 ## Expected Contribution
-I would like to contribute by developing an AI Procurement Assistant that streamlines enterprise procurement workflows, from supplier sourcing to purchase approvals. The project would combine Agentic AI, RAG, and LLMs to automate procurement tasks, provide intelligent recommendations, and improve decision-making. I also hope to build it using FastAPI, Docker, GitHub Actions, structured logging, and scalable backend services, while gaining hands-on experience in developing production-ready AI systems.
+As the Research Engineer on llm-eval-kit, I expect to contribute to implementing the evaluation criteria used to measure LLM responses, such as relevance and factual grounding. Having worked on LLM-based applications and AI projects, I am interested in understanding how response quality can be evaluated using embeddings and similarity measures. I would begin by experimenting with different prompt-response examples to understand how each evaluation criterion behaves before implementing and testing it.
 
 ## Question
 The project brief mentions Agentic AI Systems, LLM Applications, and several other focus areas. Will fellows have the opportunity to contribute across multiple projects during the fellowship, or will each fellow primarily focus on a single project throughout the three months?
