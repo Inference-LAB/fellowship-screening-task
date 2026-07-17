@@ -6,6 +6,7 @@
 | Lead Engineer | Mahrukh Baig |
 | Implementation Engineer | Muhammad Maaz |
 | Integration Engineer | Baseer Ahmed |
+| Research Engineer | Warisha Siddiqui |
 
 ## Project B: docling-pk
 | Role | Name |
